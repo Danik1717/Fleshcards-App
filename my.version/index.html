@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flashcards</title>
+  </head>
+  <body>
+    <h1 style="display: flex; justify-content: center">Flashcards</h1>
+    <section id="deck-choice">
+      <h2>Deck choice</h2>
+      <div id="deck-selection-block">
+        <select name="deck-selection" id="base-deck">
+          <option value="deck1">Deck 1</option>
+        </select>
+        <button id="add-deck-btn">Add new deck</button>
+      </div>
+    </section>
+    <section id="create-card">
+      <div id="add-card">
+        <h2>Add card</h2>
+        <div>
+          <input
+            type="text"
+            id="front-input"
+            placeholder="front side(question)"
+          />
+          <input type="text" id="back-input" placeholder="back side(answer)" />
+          <button id="add-card-btn">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="deck">
+      <h2 style="margin-top: 30px">Deck</h2>
+      <table id="cards-table">
+        <thead>
+          <tr>
+            <th>front side</th>
+            <th>back side</th>
+            <th>learned</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </section>
+
+    <section id="study-mod">
+      <h2>Study</h2>
+      <div id="mod-choice">
+        <label>
+          <input type="radio" name="study-mode" value="all" checked />
+          Все карточки
+        </label>
+
+        <label>
+          <input type="radio" name="study-mode" value="unlearned" />
+          Только невыученные
+        </label>
+      </div>
+      <button id="study-mod-btn">Study mod</button>
+    </section>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

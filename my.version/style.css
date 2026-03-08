@@ -1,0 +1,72 @@
+html{
+font-family: 'Times New Roman', Times, serif;
+}
+
+
+#create-card,#add-card-btn,#deck,#deck-choice{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#deck-selection-block{
+    display: flex;
+    justify-content: center;
+}
+
+#add-card button,input{
+    font-size: 15px;
+    border-radius: 10%;
+    border: 2px solid rgba(122, 122, 122, 0.293);
+}
+
+#add-card input{
+    width: 250px;
+    height: 35px;
+}
+
+button{
+    cursor: pointer;
+    width: 90px;
+    height: 40px;
+    background: rgb(199, 199, 199);
+}
+
+
+
+table{
+    background-color: #dcedff;
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+tr{
+    font-size: 18px;
+    border: 2px solid black;
+}
+
+th,td{
+    width:300px;
+    height: 30px;
+    border: 2px solid black;
+    font-size: 18px;
+}
+
+#study-mod {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#mod-choice{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+#deck-selection-block select {
+    width: 100px;
+}
