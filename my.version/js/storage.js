@@ -4,4 +4,4 @@ export let getFromStorage = (deckName)=>{
 
 export let saveToStorage = (deckName,deck)=>{
    return localStorage.setItem(`flashcards-deck-${deckName}`,JSON.stringify(deck));
-}
+}   

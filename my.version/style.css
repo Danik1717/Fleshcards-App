@@ -1,5 +1,7 @@
 html{
 font-family: 'Times New Roman', Times, serif;
+overflow-x: hidden;
+box-sizing: border-box;
 }
 
 
@@ -60,6 +62,12 @@ th,td{
     flex-direction: column;
 }
 
+#activate-study-mod-btn,#deactivate-study-mod-btn{
+    width: 180px;
+    height: 100px;
+    font-size: large;
+}
+
 #mod-choice{
     display: flex;
     flex-direction: row;
@@ -70,3 +78,32 @@ th,td{
 #deck-selection-block select {
     width: 100px;
 }
+
+button:hover{
+    border-color: #dcedff;
+    background-color: aquamarine;
+}
+
+#study-container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+#card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 30%;
+    border: 2px solid black;
+    border-radius: 10%;
+    background-color: #dcedff;
+    
+}
+
