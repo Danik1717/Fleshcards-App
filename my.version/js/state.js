@@ -2,7 +2,10 @@ import { saveToStorage, getFromStorage } from "./storage.js";
 import { addCardBtnEl, backInputEl, frontInputEl } from "./constants.js";
 
 export let currentDeckName = "default";
-
+export const cardState = {
+    isFront: true,
+    currentIndex: 0
+};
 export let deck = getFromStorage(currentDeckName);
 
 export let addCard = (front,back) => {
@@ -44,8 +47,30 @@ export let studyModState = false;
 
 export let switchStudyModState = ()=>{
   studyModState = !studyModState
+  cardState.currentIndex = 0;
 }
 
-export let mixCards = ()=>{
-  
+export let shuffleCards = ()=>{
+  let j;
+  let card;
+  for(let i=0;i<deck.length;i++){
+    j = Math.floor(Math.random()*deck.length)
+    console.log(j)
+    card = deck[i]
+    deck[i]=deck[j]
+    deck[j]=card;
+  }
 }
+
+export let switchCardSide = ()=>{
+  cardState.isFront = !cardState.isFront
+  console.log('change')
+}
+
+export const changeCardIndex = (step) => {
+    cardState.currentIndex = cardState.currentIndex + step 
+    cardState.isFront = true;
+};
+
+
+

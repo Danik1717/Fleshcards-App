@@ -1,10 +1,13 @@
 import { getFromStorage, saveToStorage } from "./storage.js";
 import * as UI from "./constants.js";
-import { addDeck, addCard, currentDeckName,deck,deleteCard, changeDeck, editCard,studyModState, switchStudyModState } from "./state.js";
-import { renderCards,renderDeckList } from "./render.js";
+import { addDeck, addCard, currentDeckName,deck,deleteCard, changeDeck, editCard,studyModState, switchStudyModState,shuffleCards, switchCardSide, cardState,changeCardIndex} from "./state.js";
+import { renderCards,renderDeckList,renderCard,renderBtnsAndCounter, renderStateOfActivateStudyModBtn } from "./render.js";
 
 renderCards()
 renderDeckList()
+renderCard(deck,0)
+renderBtnsAndCounter(cardState.currentIndex,deck.length)
+renderStateOfActivateStudyModBtn()
 
 setInterval(() => {
     if (currentDeckName && deck) {
@@ -19,14 +22,15 @@ UI.addCardBtnEl.addEventListener('click', () => {
 
     addCard(front,back)
     renderCards()
+    renderStateOfActivateStudyModBtn()
 
     UI.frontInputEl.value = ""
     UI.backInputEl.value = ""
 });
 
 UI.tableBodyEl.addEventListener('click',(event)=>{
-    let deletebtn = event.target.closest('.delete-btn');
-    let editbtn = event.target.closest('.edit-btn')
+    const deletebtn = event.target.closest('.delete-btn');
+    const editbtn = event.target.closest('.edit-btn')
     if(deletebtn){
         let deletebtnid = Number(deletebtn.dataset.id);
         deleteCard(deletebtnid);
@@ -50,6 +54,7 @@ UI.addDeckBtn.addEventListener('click',()=>{
 UI.deckListEl.addEventListener('change',(event)=>{
     let deckName = event.target.value;
     changeDeck(deckName);
+    renderStateOfActivateStudyModBtn()
     renderCards()
 })
 
@@ -70,7 +75,10 @@ UI.activateStudyModBtn.addEventListener('click',()=>{
         UI.studyContainerEl.style.display = 'flex'
         UI.mainContainerEl.style.display = 'none'
         switchStudyModState()
-}})
+        renderCard(deck, cardState.currentIndex, cardState.isFront);
+        renderBtnsAndCounter(cardState.currentIndex,deck.length)
+    }
+})
 
 UI.deactivateStudyModBtn.addEventListener('click',()=>{
     if(studyModState){
@@ -80,7 +88,24 @@ UI.deactivateStudyModBtn.addEventListener('click',()=>{
     }
 })
 
+UI.shuffleBtn.addEventListener('click',()=>{
+    shuffleCards()
+    renderCards()
+})
 
+UI.cardEl.addEventListener('click',()=>{
+    switchCardSide()
+    renderCard(deck,cardState.currentIndex,cardState.isFront)
+})
 
-
+UI.studyContainerEl.addEventListener('click', (event) => {
+    const nextBtn = event.target.closest('#next-card-btn');
+    const prevBtn = event.target.closest('#prev-card-btn');
+    if (nextBtn || prevBtn) {
+        let step = nextBtn ? 1 : -1;
+        changeCardIndex(step, deck.length);
+        renderCard(deck, cardState.currentIndex, cardState.isFront);
+        renderBtnsAndCounter(cardState.currentIndex,deck.length)
+    }
+});
 
