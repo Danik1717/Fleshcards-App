@@ -8,76 +8,89 @@
   </head>
   <body>
     <div id="main-container">
-      
-    <h1 style="display: flex; justify-content: center">Flashcards</h1>
-    <section id="deck-choice">
-      <h2>Deck choice</h2>
-      <div id="deck-selection-block">
-        <select name="deck-selection" id="base-deck">
-        </select>
-        <button id="add-deck-btn">Add new deck</button>
-      </div>
-    </section>
-    <section id="create-card">
-      <div id="add-card">
-        <h2>Add card</h2>
-        <div>
-          <input
-            type="text"
-            id="front-input"
-            placeholder="front side(question)"
-          />
-          <input type="text" id="back-input" placeholder="back side(answer)" />
-          <button id="add-card-btn">Save</button>
+      <h1 style="display: flex; justify-content: center">Flashcards</h1>
+      <section id="deck-choice">
+        <h2>Deck choice</h2>
+        <div id="deck-selection-block">
+          <select name="deck-selection" id="base-deck"></select>
+          <button id="add-deck-btn">Add new deck</button>
         </div>
-      </div>
-    </section>
-
-    <section id="deck">
-      <h2 style="margin-top: 30px">Deck</h2>
-      <table id="cards-table">
-        <thead>
-          <tr>
-            <th>front side</th>
-            <th>back side</th>
-            <th>learned</th>
-            <th>action</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
-      <button id="shuffle-btn">shuffle deck</button>
-    </section>
-
-    <section id="study-mod">
-      <h2>Study</h2>
-      <div id="mod-choice">
-        <label>
-          <input type="radio" name="study-mode" value="all" checked />
-          All cards
-        </label>
-
-        <label>
-          <input type="radio" name="study-mode" value="unlearned" />
-          Only learned cards
-        </label >
-      </div >
-      <button id="activate-study-mod-btn">Activate study mod</button>
-    </section>
-     </div>
-     <div id="study-container" style="display: none;">
-        <div id="card">
-          TEXT
+      </section>
+      <section id="create-card">
+        <div id="add-card">
+          <h2>Add card</h2>
+          <div>
+            <input
+              type="text"
+              id="front-input"
+              placeholder="front side(question)"
+            />
+            <input
+              type="text"
+              id="back-input"
+              placeholder="back side(answer)"
+            />
+            <button id="add-card-btn">Save</button>
+          </div>
         </div>
-        <div style="display: flex; flex-direction: row; margin-top: 3%; align-items: center; gap: 3px; font-size: 1.75rem;" >
-          <button id="deactivate-study-mod-btn" style="position: absolute; bottom: 0; ;">Deactivate study mod</button>
-          <button id="prev-card-btn">previous card</button>
-          <span id="counter"></span>
-          <button id="next-card-btn">next card</button>
+      </section>
+
+      <section id="deck">
+        <h2 style="margin-top: 30px">Deck</h2>
+        <table id="cards-table">
+          <thead>
+            <tr>
+              <th>front side</th>
+              <th>back side</th>
+              <th>learned</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+        <button id="shuffle-btn">shuffle deck</button>
+      </section>
+
+      <section id="study-mod">
+        <h2>Study</h2>
+        <div id="mod-choice">
+          <label>
+            <input type="radio" name="study-mode" value="all" checked />
+            All cards
+          </label>
+
+          <label>
+            <input type="radio" name="study-mode" value="unlearned" />
+            Only learned cards
+          </label>
         </div>
+        <button id="activate-study-mod-btn">Activate study mod</button>
+      </section>
+    </div>
+    <div id="study-container" style="display: none">
+      <div id="card">TEXT</div>
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          margin-top: 3%;
+          align-items: center;
+          gap: 3px;
+          font-size: 1.75rem;
+        "
+      >
+        <button
+          id="deactivate-study-mod-btn"
+          style="position: absolute; bottom: 0"
+        >
+          Deactivate study mod
+        </button>
+        <button id="prev-card-btn">previous card</button>
+        <span id="counter"></span>
+        <button id="next-card-btn">next card</button>
       </div>
+    </div>
 
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
-

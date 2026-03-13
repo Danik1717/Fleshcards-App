@@ -38,26 +38,24 @@ export let renderDeckList = () => {
 };
 
 export let renderCard = (deck, index, IsFront = true) => {
-    const card = deck[index];
-    UI.cardEl.innerHTML = IsFront ? card.front : card.back;
+  const card = deck[index];
+  UI.cardEl.innerHTML = IsFront ? card.front : card.back;
 
-    if (!IsFront) {
-        UI.cardEl.style.backgroundColor = '#90ee90';
-    } else {
-        
-        UI.cardEl.style.backgroundColor = '#dcedff'; 
-    }
+  if (!IsFront) {
+    UI.cardEl.style.backgroundColor = "#90ee90";
+  } else {
+    UI.cardEl.style.backgroundColor = "#dcedff";
+  }
 };
 
-export let renderBtnsAndCounter = (currentIndex,deckLength)=>{
-    
-    UI.counterEl.innerHTML = `${currentIndex+1}/${deckLength}`
+export let renderBtnsAndCounter = (currentIndex, deckLength) => {
+  UI.counterEl.innerHTML = `${currentIndex + 1}/${deckLength}`;
 
-    UI.previousBtn.disabled = currentIndex===0?true:false
+  UI.previousBtn.disabled = currentIndex === 0 ? true : false;
 
-    UI.nextBtn.disabled= currentIndex===deckLength-1?true:false
-}
+  UI.nextBtn.disabled = currentIndex === deckLength - 1 ? true : false;
+};
 
-export let renderStateOfActivateStudyModBtn = ()=>{
-    UI.activateStudyModBtn.disabled = deck.length===0?true:false
-}
+export let renderStateOfActivateStudyModBtn = () => {
+  UI.activateStudyModBtn.disabled = deck.length === 0 ? true : false;
+};
